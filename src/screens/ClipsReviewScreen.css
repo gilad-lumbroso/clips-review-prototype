@@ -1,0 +1,152 @@
+.clips-review-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  overflow: hidden;
+}
+
+.carousel-container {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  padding: 12px 0;
+  min-height: 0;
+}
+
+.clips-carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  /* Padding is set dynamically via JS to center first/last items */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  align-items: stretch;
+}
+
+.clips-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.clips-carousel.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.clips-carousel.dragging * {
+  pointer-events: none;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  /* Fill available height, width based on 9:16 aspect ratio */
+  height: 100%;
+  /* Width = height * (9/16) for 9:16 video aspect ratio */
+  aspect-ratio: 9 / 16;
+  /* Leave room to peek prev/next videos (~20px visible on each side) */
+  max-width: calc(100vw - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-item .video-container {
+  flex: 1;
+  min-height: 0;
+}
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.pagination-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-dot.active {
+  width: 24px;
+  background: #fff;
+}
+
+.bottom-action-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+}
+
+.edit-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.edit-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.edit-button:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.next-button {
+  flex: 1;
+  height: 48px;
+  border-radius: 24px;
+  background: #8B5CF6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.next-button:hover {
+  background: #7C3AED;
+}
+
+.next-button:active {
+  background: #6D28D9;
+}
+
+.home-indicator {
+  padding: 8px 0;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+}
+
+.home-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2.5px;
+}

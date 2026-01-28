@@ -1,0 +1,87 @@
+.video-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-container {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: #1a1a1a;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Play/pause indicator */
+.play-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Video controls - overlaid on video */
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.progress-bar {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 1px;
+  transition: width 0.1s linear;
+}
+
+.time-display {
+  font-size: 13px;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.time-separator {
+  margin: 0 2px;
+  opacity: 0.7;
+}
+
+/* Caption below video */
+.caption-below {
+  padding: 10px 4px 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.transcript-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
